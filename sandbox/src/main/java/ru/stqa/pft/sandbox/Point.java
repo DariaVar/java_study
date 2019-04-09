@@ -8,6 +8,9 @@ public class Point {
         this.p2 = p2;
     }
 
+    public Point(int i) {
+    }
+
     public  double distance () {
         return Math.sqrt((this.p2-this.p1)*(this.p2-this.p1)+(this.p2-this.p1)*(this.p2-this.p1)) * 1.0;
 
