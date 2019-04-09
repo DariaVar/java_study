@@ -7,11 +7,9 @@ public class Point {
         this.p1 = p1;
         this.p2 = p2;
     }
-    public double getP1() {
-        return p1;
-    }
-    public double getP2() {
-        return p2;
-    }
 
-}
+    public  double distance () {
+        return Math.sqrt((this.p2-this.p1)*(this.p2-this.p1)+(this.p2-this.p1)*(this.p2-this.p1)) * 1.0;
+
+
+}}
