@@ -14,7 +14,7 @@ public class Point {
     }
 
 
-    public  double area () {
+    public  double distance () {
         return  ((this.x - this.x1) * (this.x - this.x1) + (this.y - this.y1) * (this.y - this.y1));
 
     }
