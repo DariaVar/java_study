@@ -15,10 +15,6 @@ public class myfirstprogramm {
 
 
         Point p = new Point(40,20,30,5);
-        p.x = 40;
-        p.y = 20;
-        p.x1 = 30;
-        p.y1 = 5;
         System.out.println("Расстояние между двумя точками = " + p.area ());
 
 
