@@ -3,13 +3,13 @@ package ru.stqa.pft.sandbox;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class myfirsttastTest {
+public class myfirstprogrammTest {
 
     @Test
 
     public void testDistance () {
-        Point p = new Point(10, 5);
-        Assert.assertEquals(p.distance(), 7.0710678118654755);
+        Point p = new Point(40,20,30,5);
+        Assert.assertEquals(p.distance(), 1025.0);
     }
 
 }
