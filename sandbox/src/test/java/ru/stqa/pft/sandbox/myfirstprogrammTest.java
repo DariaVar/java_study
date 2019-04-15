@@ -8,8 +8,8 @@ public class myfirstprogrammTest {
     @Test
 
     public void testDistance () {
-        Point p = new Point(40,20,30,5);
-        Assert.assertEquals(p.distance(), 1025.0);
+        Point p = new Point(55,10);
+        Assert.assertEquals(p.distance(), 63.63961030678928);
     }
 
 }
