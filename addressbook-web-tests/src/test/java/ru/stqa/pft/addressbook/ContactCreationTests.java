@@ -29,14 +29,13 @@ public class ContactCreationTests {
   @Test
   public void testContactCreationTests() throws Exception {
 
-    gotocontactcreation("add new");
+    gotoContactcreat("add new");
     fiilContactForm(new ContactData("test23", "test33", "test6788", "98343434343", "shjkfjksfs@mail.ru"));
-    submit("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]", By.linkText("Logout"));
+    submit("Logout");
   }
 
-  private void submit(String s, By logout) {
-    wd.findElement(By.xpath(s)).click();
-    wd.findElement(logout).click();
+  private void submit(String logout) {
+    wd.findElement(By.linkText(logout)).click();
   }
 
   private void fiilContactForm(ContactData contactData) {
@@ -49,16 +48,17 @@ public class ContactCreationTests {
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
     wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Fax:'])[1]/following::label[1]")).click();
+    wd.findElement(By.xpath("//div[@id='content']/form/label[14]")).click();
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
     wd.findElement(By.name("home")).sendKeys(contactData.getHome());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
-  private void gotocontactcreation(String s) {
+  private void gotoContactcreat(String s) {
     wd.findElement(By.linkText(s)).click();
   }
 
