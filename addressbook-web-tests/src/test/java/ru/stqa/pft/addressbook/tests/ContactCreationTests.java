@@ -49,17 +49,18 @@ public class ContactCreationTests {
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
     wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    wd.findElement(By.xpath("//div[@id='content']/form/label[14]")).click();
+    gotoContactcreat("add new");
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
     wd.findElement(By.name("home")).sendKeys(contactData.getHome());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    submit("Logout");
   }
 
   private void gotoContactcreat(String s) {
+
     wd.findElement(By.linkText(s)).click();
   }
 
