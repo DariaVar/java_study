@@ -38,4 +38,12 @@ public class ContactHelper extends HelperBase {
     public void selectContact() {
       wd.findElement(By.name("selected[]")).click();
     }
+
+    public void initContactModification() {
+        click(By.xpath("//td[@class='center'][3]//img[@title='Edit']"));
+    }
+
+    public void submitContactModificatio() {
+        click(By.name("update"));
+    }
 }
