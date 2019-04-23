@@ -6,6 +6,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
 
+
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
@@ -27,5 +28,14 @@ public class ContactHelper extends HelperBase {
 
     public void gotoContactcreat() {
       click(By.linkText("add new"));
+    }
+
+    public void deletContact() {
+      wd.findElement(By.xpath("//input[@value='Delete']")).click();
+      wd.switchTo().alert().accept();
+    }
+
+    public void selectContact() {
+      wd.findElement(By.name("selected[]")).click();
     }
 }
