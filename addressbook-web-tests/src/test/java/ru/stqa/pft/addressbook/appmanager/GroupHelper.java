@@ -40,12 +40,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public boolean isElementPresent(By by) {
-        try {
-            wd.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+        return super.isElementPresent(by);
     }
 
     public boolean isAlertPresent() {
