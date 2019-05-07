@@ -59,4 +59,7 @@ public class ApplicationManager {
         return contactHelper;
     }
 
+    public void initContactModification() {
+
+    }
 }
