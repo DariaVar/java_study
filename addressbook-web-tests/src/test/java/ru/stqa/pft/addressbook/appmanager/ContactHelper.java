@@ -62,6 +62,11 @@ public class ContactHelper extends HelperBase {
         gotoContactcreat();
         fiilContactForm (new ContactData("test23", "test33", "test6788", "98343434343", "shjkfjksfs@mail.ru", "test1"));
         initContactModification();
+        clickOnHomePage();
+    }
+
+    private void clickOnHomePage() {
+        click(By.linkText("home"));
     }
 
     public boolean isThereAContact() {
