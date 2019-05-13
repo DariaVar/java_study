@@ -9,7 +9,7 @@ import java.util.List;
 public class ContactCreationTests  extends TestBase{
 
 
-  @Test(enabled = false)
+  @Test
   public void testContactCreationTests() throws Exception {
     app.goTo().gotoHome();
     List<ContactData> before = app.getContactHelper().getContactList();
