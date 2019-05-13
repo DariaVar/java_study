@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase {
         if (creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
+            Assert.assertTrue(isElementPresent(By.name("new_group")));
         }
         type(By.name("address"), contactData.getAddress());
         click(By.name("home"));
@@ -81,11 +81,13 @@ public class ContactHelper extends HelperBase {
 
     public List<ContactData> getContactList() {
         List<ContactData> contacts =new ArrayList<ContactData>();
-        List<WebElement> elemets = wd.findElements(By.cssSelector("td.center"));
+        List<WebElement> elemets = wd.findElements(By.xpath("//tr[@name='entry']"));
         for(WebElement element : elemets) {
-            String name = element.getText();
+            List<WebElement> elements1 = element.findElements(By.tagName("td"));
+            String firstName = elements1.get(2).getText();
+            String lastName = elements1.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData(id,"test23", null, null, null, null, "test1");
+            ContactData contact = new ContactData(id,firstName, lastName);
             contacts.add(contact);
         }
 

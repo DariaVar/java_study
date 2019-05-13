@@ -2,11 +2,11 @@ package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
     private  int id;
-    private final String firstname;
-    private final String lastname;
-    private final String address;
-    private final String home;
-    private final String email;
+    private  String firstname;
+    private  String lastname;
+    private  String address;
+    private  String home;
+    private  String email;
     private String group;
 
 
@@ -29,6 +29,12 @@ public class ContactData {
         this.home = home;
         this.email = email;
         this.group = group;
+    }
+
+    public ContactData(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
 
