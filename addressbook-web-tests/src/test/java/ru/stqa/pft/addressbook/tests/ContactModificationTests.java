@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void testContactModification(){
-        app.getNavigationHelper().gotoHome();
+        app.goTo().gotoHome();
         if(! app.getContactHelper().isThereAContact()){
             app.getContactHelper().createContact(new ContactData("test23", "test1", "test1", "test1", "test1@test.ru", "test1"));
             List<ContactData> before = app.getContactHelper().getContactList();

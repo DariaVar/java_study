@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase{
 
-  @Test
+  @Test(enabled = false)
   public void testContactDeletionTests() throws Exception {
-    app.getNavigationHelper().gotoHome();
+      app.goTo().gotoHome();
 
     if(! app.getContactHelper().isThereAContact()){
       app.getContactHelper().createContact(new ContactData("test23", "test1", "test1", "test1", "test1@test.ru", "test1"));
