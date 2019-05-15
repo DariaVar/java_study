@@ -8,6 +8,9 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class ContactModificationTests extends TestBase {
 
 @BeforeMethod
@@ -28,9 +31,8 @@ public void ensurePreconditions(){
             ContactData contact = new ContactData()
                     .withId(modifyContact.getId()).withLastname("test1488").withFirstname( "test33").withAddress("test6788").withHome("98343434343").withEmail("shjkfjksfs@mail.ru");
             app.contact().modify(contact);
-
+        assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
-            Assert.assertEquals(after.size(), before.size());
 
 
         MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(modifyContact).withAdded(contact)));
