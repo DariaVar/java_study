@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -49,26 +49,47 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact(int index) {
 
-      wd.findElements(By.name("selected[]")).get(index).click();
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    }
+
+    public void selectContactById(int id) {
+
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void initContactModification() {
+
         click(By.name("submit"));
 
 
     }
 
-    public void createContact(ContactData contactData) {
+
+    public void create(ContactData contactData) {
         gotoContactcreat();
-        fiilContactForm (new ContactData("test23", "test33", "test6788", "98343434343", "shjkfjksfs@mail.ru", "test1"));
+        fiilContactForm (new ContactData().withLastname("test33").withFirstname( "test23"));
         initContactModification();
         clickOnHomePage();
     }
-
+    public void modify( ContactData contact) {
+        selectContactById(contact.getId());
+       fiilContactForm (contact);
+        initContactModification();
+    }
     private void clickOnHomePage() {
         click(By.linkText("home"));
     }
 
+    public void delete(int index) {
+       selectContact(index);
+      deletContact();
+    }
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+
+        deletContact();
+
+    }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
 
@@ -83,8 +104,9 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public List<ContactData> getContactList() {
-        List<ContactData> contacts =new ArrayList<ContactData>();
+
+    public Contacts all() {
+        Contacts contacts =new Contacts();
         List<WebElement> elemets = wd.findElements(By.xpath("//tr[@name='entry']"));
 
         for(WebElement element : elemets) {
@@ -92,11 +114,11 @@ public class ContactHelper extends HelperBase {
             String firstName = elements1.get(2).getText();
             String lastName = elements1.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData(id,firstName, lastName);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName));
         }
 
         return contacts;
     }
 
-    }
+
+}
