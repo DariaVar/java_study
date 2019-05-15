@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-    @Test(enabled = false)
+    @Test
     public void testContactModification(){
         app.goTo().gotoHome();
         if(! app.getContactHelper().isThereAContact()){

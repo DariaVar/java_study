@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase{
 
-  @Test(enabled = false)
+  @Test
   public void testContactDeletionTests() throws Exception {
       app.goTo().gotoHome();
 
