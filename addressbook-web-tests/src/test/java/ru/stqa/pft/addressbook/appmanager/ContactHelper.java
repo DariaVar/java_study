@@ -7,9 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -21,9 +19,6 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
-    public void submit() {
-      click(By.linkText("Logout"));
-    }
 
     public void fiilContactForm(ContactData contactData) {
         type(By.name("firstname"), contactData.getFirstname());
@@ -49,15 +44,10 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    public void selectContact(int index) {
 
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
-    }
+    public void selectContactById(int index) {
 
-    public void selectContactById(int id) {
-
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
-    }
+        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();}
 
     public void initContactModification() {
 
@@ -67,6 +57,10 @@ public class ContactHelper extends HelperBase {
     }
     public void waitDeletionContact(){
         wd.findElement(By.cssSelector("div.msgbox"));
+    }
+
+    public void updateContactButton() {
+        click(By.name("update"));
     }
 
 
@@ -79,9 +73,10 @@ public class ContactHelper extends HelperBase {
     }
     public void modify( ContactData contact) {
         goToHomePage();
+        isThereAContact();
         selectContactById(contact.getId());
        fiilContactForm (contact);
-        initContactModification();
+        updateContactButton();
         contactCache = null;
         clickOnHomePage();
     }
