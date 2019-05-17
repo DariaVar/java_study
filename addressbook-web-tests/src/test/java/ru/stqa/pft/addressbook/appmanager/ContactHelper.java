@@ -27,7 +27,7 @@ public class ContactHelper extends HelperBase {
         if (creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
-            Assert.assertTrue(isElementPresent(By.name("new_group")));
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
         type(By.name("address"), contactData.getAddress());
         click(By.name("home"));
@@ -72,13 +72,10 @@ public class ContactHelper extends HelperBase {
         clickOnHomePage();
     }
     public void modify( ContactData contact) {
-        goToHomePage();
-        isThereAContact();
-        selectContactById(contact.getId());
+        initContactModification(contact.getId());
        fiilContactForm (contact);
         updateContactButton();
-        contactCache = null;
-        clickOnHomePage();
+
     }
     private void clickOnHomePage() {
         click(By.linkText("home"));
@@ -92,6 +89,10 @@ public class ContactHelper extends HelperBase {
 
 
     }
+
+    private void initContactModification(int id) {
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+    }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
 
@@ -101,9 +102,9 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home"));
     }
 
-    public int count() {
-        return  wd.findElements(By.name("selected[]")).size();
-    }
+   public int count() {
+     return  wd.findElements(By.name("selected[]")).size();
+}
 
 
     private Contacts contactCache =null;
