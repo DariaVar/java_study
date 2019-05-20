@@ -40,7 +40,8 @@ public class ContactHelper extends HelperBase {
     }
 
     public void deletContact() {
-      click(By.xpath("//input[@value='Delete']"));
+        click(By.cssSelector("[value='Delete']"));
+        wd.switchTo().alert().accept();
 
     }
 
@@ -83,12 +84,17 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void delete(ContactData deleteContact) {
-        goToHomePage();
-        isThereAContact();
+    public void delete(ContactData contactData) {
+
+        selectContact(contactData.getId());
         deletContact();
+        waitDeletionContact();
+        goToHomePage();
 
 
+    }
+    private void selectContact(int id) {
+        wd.findElement(By.id(Integer.toString(id))).click();
     }
 
     private void initContactModification(int id) {

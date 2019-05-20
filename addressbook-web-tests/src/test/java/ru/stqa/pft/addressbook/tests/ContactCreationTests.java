@@ -31,7 +31,7 @@ public class ContactCreationTests  extends TestBase{
   }
 
 
-  @Test
+  @Test (enabled = false)
   public void testBadContactCreationTests() throws Exception {
     app.goTo().gotoHome();
     Contacts before = app.contact().all();
