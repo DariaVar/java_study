@@ -25,7 +25,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), contactData.getLastname());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            new Select(wd.findElement(By.name("new_group"))).getOptions().get(1).click();
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -88,6 +88,7 @@ public class ContactHelper extends HelperBase {
 
         selectContact(contactData.getId());
         deletContact();
+        contactCache = null;
         waitDeletionContact();
         goToHomePage();
 
