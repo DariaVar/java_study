@@ -1,12 +1,10 @@
 package ru.stqa.pft.addressbook.model;
 
-import java.util.Objects;
-
 public class GroupData {
-    private  String name;
-    private  String header;
-    private  String footer;
-    private  int id = Integer.MAX_VALUE;
+    private String name;
+    private String header;
+    private String footer;
+    private int id = Integer.MAX_VALUE;
 
 
     public int getId() {
@@ -17,6 +15,7 @@ public class GroupData {
         this.id = id;
         return this;
     }
+
     public GroupData withName(String name) {
         this.name = name;
         return this;
@@ -33,8 +32,6 @@ public class GroupData {
     }
 
 
-
-
     public String getName() {
         return name;
     }
@@ -46,9 +43,6 @@ public class GroupData {
     public String getFooter() {
         return footer;
     }
-
-
-
 
 
     @Override
