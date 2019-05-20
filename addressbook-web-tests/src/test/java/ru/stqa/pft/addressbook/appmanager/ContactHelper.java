@@ -20,7 +20,7 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void fiilContactForm(ContactData contactData) {
+    public void fiilContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
 
@@ -66,14 +66,15 @@ public class ContactHelper extends HelperBase {
 
     public void create(ContactData contactData) {
         gotoContactcreat();
-        fiilContactForm (new ContactData().withLastname("test33").withFirstname( "test23"));
+        fiilContactForm (new ContactData().withLastname("test33").withFirstname( "test23"), true);
         initContactModification();
         contactCache = null;
         clickOnHomePage();
     }
     public void modify( ContactData contact) {
+        goToHomePage();
         initContactModification(contact.getId());
-       fiilContactForm (contact);
+       fiilContactForm (new ContactData().withLastname("test33").withFirstname( "test23"), false);
         updateContactButton();
 
     }
