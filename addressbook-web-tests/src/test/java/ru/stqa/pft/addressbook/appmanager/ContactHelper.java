@@ -128,7 +128,7 @@ public class ContactHelper extends HelperBase {
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
             String address = cells.get(3).getText();
-            String allEmail = cells.get(4).getText();
+            String allEmails = cells.get(4).getText();
             String allPhones = cells.get(5).getText();
 
             contacts.add(new ContactData()
@@ -136,7 +136,7 @@ public class ContactHelper extends HelperBase {
                     .withFirstname(firstname)
                     .withLastname(lastname)
                     .withAddress(address)
-                    .withAllEmails(allEmail)
+                    .withAllEmails(allEmails)
                     .withAllPhones(allPhones));
         }
 

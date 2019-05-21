@@ -50,12 +50,12 @@ public class ContactData {
         this.email = email;
         return this;
     }
-    public ContactData withEmail2(String email) {
-        this.email = email;
+    public ContactData withEmail2(String email2) {
+        this.email = email2;
         return this;
     }
-    public ContactData withEmail3(String email) {
-        this.email = email;
+    public ContactData withEmail3(String email3) {
+        this.email = email3;
         return this;
     }
 
