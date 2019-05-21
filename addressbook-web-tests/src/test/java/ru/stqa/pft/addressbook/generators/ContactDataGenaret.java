@@ -78,7 +78,7 @@ public class ContactDataGenaret {
         System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file);
         for (ContactData contact : contacts){
-            writer.write(String.format("%s;%s;%s\n", contact.getLastname(), contact.getFirstname(), contact.getAllPhones(), contact.getAllEmails()));
+            writer.write(String.format("%s;%s;%s\n", contact.getLastname(), contact.getFirstname()));
 
         }
         writer.close();

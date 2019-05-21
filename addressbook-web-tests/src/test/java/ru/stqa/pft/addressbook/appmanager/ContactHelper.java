@@ -16,16 +16,16 @@ public class ContactHelper extends HelperBase {
 
     public void create(ContactData contactData) {
         gotoContactcreat();
-        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23"), true);
+        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23").withAllEmails("test4").withAllPhones("929209323"), true);
         initContactModification();
         contactCache = null;
-        clickOnHomePage();
+
     }
 
     public void modify(ContactData contact) {
         goToHomePage();
         initContactModification(contact.getId());
-        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23"), false);
+        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23").withAllEmails("test4").withAllPhones("929209323"), false);
         updateContactButton();
     }
 
