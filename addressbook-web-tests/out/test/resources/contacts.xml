@@ -1,0 +1,20 @@
+<list>
+  <contact>
+    <firstname>header 0</firstname>
+    <lastname>test 0</lastname>
+    <allPhones>footer 0</allPhones>
+    <allEmails>footer 0</allEmails>
+  </contact>
+  <contact>
+    <firstname>header 1</firstname>
+    <lastname>test 1</lastname>
+    <allPhones>footer 1</allPhones>
+    <allEmails>footer 1</allEmails>
+  </contact>
+  <contact>
+    <firstname>header 2</firstname>
+    <lastname>test 2</lastname>
+    <allPhones>footer 2</allPhones>
+    <allEmails>footer 2</allEmails>
+  </contact>
+</list>
