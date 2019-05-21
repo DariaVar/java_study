@@ -13,7 +13,6 @@ import java.util.List;
 public class ContactHelper extends HelperBase {
 
 
-    private String allEmails;
 
     public void create(ContactData contactData) {
         gotoContactcreat();
@@ -137,7 +136,7 @@ public class ContactHelper extends HelperBase {
                     .withFirstname(firstname)
                     .withLastname(lastname)
                     .withAddress(address)
-                    .withAllEmails(allEmails)
+                    .withAllEmails(allEmail)
                     .withAllPhones(allPhones));
         }
 

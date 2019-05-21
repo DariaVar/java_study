@@ -34,8 +34,8 @@ public class ContactPhoneTests  extends  TestBase{
 
     private String mergeEmails(ContactData contact) {
         return asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
-                .stream().filter((s) -> !s.equals(""))
-                .map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
+                .stream().filter((s) -> !s.equals(null))
+                .map(ContactPhoneTests::cleaned).collect(Collectors.joining("null "));
     }
 
     public static String cleaned(String phone) {
