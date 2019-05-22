@@ -23,7 +23,7 @@ public class ApplicationManager {
     private  NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
 
-    public ApplicationManager(String browser) throws IOException {
+    public ApplicationManager(String browser)  {
         this.browser = browser;
         properties = new Properties();
 
