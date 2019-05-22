@@ -15,10 +15,12 @@ public class ContactHelper extends HelperBase {
 
 
     public void create(ContactData contactData) {
+        goToHomePage();
         gotoContactcreat();
-        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23").withAllEmails("test4").withAllPhones("929209323"), true);
+        fiilContactForm(new ContactData().withLastname("test33").withFirstname("test23").withAllEmails("test4"), true);
         initContactModification();
         contactCache = null;
+        goToHomePage();
 
     }
 
@@ -50,17 +52,19 @@ public class ContactHelper extends HelperBase {
     public void fiilContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
-        attach(By.name("photo"), contactData.getPhoto());
+
 
         if (creation) {
             new Select(wd.findElement(By.name("new_group"))).getOptions().get(1).click();
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+        attach(By.name("photo"), contactData.getPhoto());
         type(By.name("address"), contactData.getAddress());
         click(By.name("home"));
         type(By.name("home"), contactData.getHome());
         type(By.name("email"), contactData.getEmail());
+
 
     }
 
