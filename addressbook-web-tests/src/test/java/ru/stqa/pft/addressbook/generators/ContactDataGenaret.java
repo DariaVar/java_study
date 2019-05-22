@@ -87,11 +87,14 @@ public class ContactDataGenaret {
     private   List<ContactData> generateContact(int count){
         List<ContactData> contacts =new ArrayList<ContactData>();
         for (int i = 0; i  < count; i++){
-            contacts.add(new ContactData().withLastname(String.format("test %s", i))
-                    .withFirstname(String.format("header %s", i))
-                    .withAllPhones(String.format("footer %s", i))
-                    .withAllEmails(String.format("footer %s", i))
-                    .withAllPhones(String.format("footer %s", i)));
+            contacts.add(new ContactData()
+                    .withLastname(String.format("test %s", i))
+                    .withFirstname(String.format("FirstName %s", i))
+                    .withLastname(String.format("LastName\n%s", i))
+                    .withMobilPhone(String.format("098766544331\n%s", i))
+                    .withEmail(String.format("email@email.\n%s", i))
+                    .withAddress(String.format("address\n%s", i))
+                    .withGroup(String.format("[none]", i)));
         }
         return contacts;
     }

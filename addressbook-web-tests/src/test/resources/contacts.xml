@@ -1,20 +1,38 @@
 <list>
   <contact>
-    <firstname>header 0</firstname>
-    <lastname>test 0</lastname>
-    <allPhones>footer 0</allPhones>
-    <allEmails>footer 0</allEmails>
+    <firstname>FirstName 0</firstname>
+    <lastname>LastName
+0</lastname>
+    <address>address
+0</address>
+    <email>email@email.
+0</email>
+    <group>[none]</group>
+    <workPhone>098766544331
+0</workPhone>
   </contact>
   <contact>
-    <firstname>header 1</firstname>
-    <lastname>test 1</lastname>
-    <allPhones>footer 1</allPhones>
-    <allEmails>footer 1</allEmails>
+    <firstname>FirstName 1</firstname>
+    <lastname>LastName
+1</lastname>
+    <address>address
+1</address>
+    <email>email@email.
+1</email>
+    <group>[none]</group>
+    <workPhone>098766544331
+1</workPhone>
   </contact>
   <contact>
-    <firstname>header 2</firstname>
-    <lastname>test 2</lastname>
-    <allPhones>footer 2</allPhones>
-    <allEmails>footer 2</allEmails>
+    <firstname>FirstName 2</firstname>
+    <lastname>LastName
+2</lastname>
+    <address>address
+2</address>
+    <email>email@email.
+2</email>
+    <group>[none]</group>
+    <workPhone>098766544331
+2</workPhone>
   </contact>
 </list>
