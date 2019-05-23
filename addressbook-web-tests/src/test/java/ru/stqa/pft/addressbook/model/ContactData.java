@@ -62,8 +62,13 @@ public class ContactData {
 
     @Column (name = "deprecated", columnDefinition = "DATETIME")
     public String deprecated;
+
     public File getPhoto() {
-        return  new File(photo);
+        if (photo != null) {
+            return new File(photo);
+        } else {
+            return null;
+        }
     }
 
     public ContactData withPhoto(File photo) {

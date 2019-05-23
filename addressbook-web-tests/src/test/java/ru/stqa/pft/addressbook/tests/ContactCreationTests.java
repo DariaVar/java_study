@@ -57,11 +57,11 @@ public class ContactCreationTests extends TestBase {
 
     @Test(dataProvider = "validContactFromXml")
     public void testContactCreationTests(ContactData contact) throws Exception {
-        app.goTo().gotoHome();
-        Contacts before = app.contact().all();
+      
+        Contacts before = app.db().contacts();
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 
@@ -70,11 +70,11 @@ public class ContactCreationTests extends TestBase {
 
     @Test(enabled = false)
     public void testBadContactCreationTests() throws Exception {
-        app.goTo().gotoHome();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData contact = new ContactData().withLastname("test33").withFirstname("test23");
+        app.goTo().gotoHome();
         app.contact().create(contact);
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size() + 1));
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
