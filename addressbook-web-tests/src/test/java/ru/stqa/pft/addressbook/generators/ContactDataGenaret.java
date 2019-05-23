@@ -91,8 +91,8 @@ public class ContactDataGenaret {
                     .withLastname(String.format("LastName\n%s", i))
                     .withMobilPhone(String.format("098766544331\n%s", i))
                     .withEmail(String.format("email@email.\n%s", i))
-                    .withAddress(String.format("address\n%s", i))
-                    .withGroup(String.format("[none]", i)));
+                    .withAddress(String.format("address\n%s", i)));
+                    //.withGroup(String.format("[none]", i)));
         }
         return contacts;
     }
