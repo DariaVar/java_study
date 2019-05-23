@@ -60,7 +60,8 @@ public class ContactData {
     @Type(type= "text")
     private String photo;
 
-
+    @Column (name = "deprecated", columnDefinition = "DATETIME")
+    public String deprecated;
     public File getPhoto() {
         return  new File(photo);
     }
