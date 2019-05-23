@@ -16,6 +16,7 @@ public class ContactPhoneTests extends TestBase {
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditFrom)));
         assertThat(contact.getAddress(), equalTo(contactInfoFromEditFrom.getAddress()));
         assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditFrom)));
+        verifyContactListInUI();
     }
 
 
