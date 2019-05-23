@@ -42,12 +42,10 @@ public class GroupHelper extends HelperBase {
 
     }
 
-
     public void returnToGroupPage() {
         click(By.linkText("group page"));
 
     }
-
     public void submitGroupCreation() {
         click(By.name("submit"));
     }
@@ -113,7 +111,5 @@ public class GroupHelper extends HelperBase {
             groupCache.add(new GroupData().withId(id).withName(name));
         }
         return new Groups(groupCache);
-
-
     }
 }
