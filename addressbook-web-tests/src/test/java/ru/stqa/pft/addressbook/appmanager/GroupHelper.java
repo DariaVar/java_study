@@ -42,6 +42,9 @@ public class GroupHelper extends HelperBase {
 
 
     }
+    public void selectGroupForSort(GroupData group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+    }
     public void selectGroup(GroupData group) {
         new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
     }
