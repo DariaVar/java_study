@@ -13,6 +13,8 @@ import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
+    private ApplicationManager app;
+
     public void create(ContactData contactData, boolean b) {
         gotoContactcreat();
         fiilContactForm(contactData, true);
@@ -38,8 +40,8 @@ public class ContactHelper extends HelperBase {
     }
 
     public void addToGroup(GroupData group, ContactData contact) {
-        selectContactById(contact.getId());
-       selectGroup(group);
+        selectById(contact.getId());
+       app.group().selectGroup(group);
         addToGroup();
     }
 
@@ -88,6 +90,10 @@ public class ContactHelper extends HelperBase {
     public void deletContact() {
         click(By.cssSelector("[value='Delete']"));
         wd.switchTo().alert().accept();
+    }
+    public void selectById(int id) {
+
+        wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
     }
 
 

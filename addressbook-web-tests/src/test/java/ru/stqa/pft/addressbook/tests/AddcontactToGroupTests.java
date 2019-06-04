@@ -18,7 +18,7 @@ public class AddcontactToGroupTests extends TestBase {
     public void ensurePreconditions() {
         if (app.db().groups().size() == 0) {
             app.goTo().groupPage();
-            app.group().create(new GroupData().withName("Test1").withHeader("testers").withFooter("t66"));
+            app.group().create(new GroupData().withName("test12").withHeader("test23").withFooter("test"));
         }
         Groups groups = app.db().groups();
         File photo = new File("src/test/resources/frog.jpg");
