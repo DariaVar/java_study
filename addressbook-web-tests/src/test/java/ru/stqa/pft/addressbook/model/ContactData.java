@@ -63,10 +63,6 @@ public class ContactData {
     @Column (name = "deprecated", columnDefinition = "DATETIME")
     public String deprecated;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "address_in_groups",
-            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
-    private Set<GroupData> groups = new HashSet<GroupData>();
 
     public File getPhoto() {
         if (photo != null) {
@@ -122,6 +118,16 @@ public class ContactData {
         this.email = email3;
         return this;
     }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
+   
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
 
 

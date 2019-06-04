@@ -59,7 +59,7 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreationTests(ContactData contact) throws Exception {
       
         Contacts before = app.db().contacts();
-        app.contact().create(contact);
+        app.contact().create(contact, true);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
         Contacts after = app.db().contacts();
         assertThat(after, equalTo(
@@ -75,7 +75,7 @@ public class ContactCreationTests extends TestBase {
         Contacts before = app.db().contacts();
         ContactData contact = new ContactData().withLastname("test33").withFirstname("test23");
         app.goTo().gotoHome();
-        app.contact().create(contact);
+        app.contact().create(contact, true);
         Contacts after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size() + 1));
         assertThat(after, equalTo(

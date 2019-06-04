@@ -4,7 +4,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +15,7 @@ public class ContactModificationTests extends TestBase {
 
         if (app.db().contacts().size() == 0){
             app.goTo().gotoHome();
-            app.contact().create(new ContactData().withLastname("test33").withFirstname("test23").withAddress("test6788").withHome("98343434343").withEmail("shjkfjksfs@mail.ru"));
+            app.contact().create(new ContactData().withLastname("test33").withFirstname("test23").withAddress("test6788").withHome("98343434343").withEmail("shjkfjksfs@mail.ru"), true);
         }
     }
     @Test

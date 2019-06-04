@@ -7,11 +7,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
-    public void create(ContactData contactData) {
+
+    public void create(ContactData contactData, boolean b) {
         gotoContactcreat();
         fiilContactForm(contactData, true);
         initContactModification();
@@ -35,7 +37,25 @@ public class ContactHelper extends HelperBase {
         goToHomePage();
     }
 
+    public void addToGroup(GroupData group, ContactData contact) {
+        selectContactById(contact.getId());
+       selectGroup(group);
+        addToGroup();
+    }
 
+    public void removeFromGroup(ContactData editedContact, GroupData group) {
+        selectGroupForSort(group);
+        selectContactById(editedContact.getId());
+        deleteFromGroup();
+    }
+
+    public void selectGroupForSort(GroupData group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+    }
+
+    public void selectGroup(GroupData group) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    }
     private boolean creation;
 
     public ContactHelper(WebDriver wd) {
@@ -51,7 +71,11 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getHome());
         type(By.name("email"), contactData.getEmail());
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).getOptions().get(1).click();
+            if (contactData.getGroups().size() > 0){
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups()
+                        .iterator().next().getName());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -97,6 +121,13 @@ public class ContactHelper extends HelperBase {
 
     public int count() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void addToGroup() {
+        click(By.name("add"));
+    }
+    public void deleteFromGroup() {
+        click(By.name("remove"));
     }
 
     private Contacts contactCache = null;

@@ -20,9 +20,9 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class TestBase {
-    Logger logger = LoggerFactory.getLogger(GroupCreationTests.class);
+    Logger logger = LoggerFactory.getLogger(TestBase.class);
 
-    protected static final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+    public static final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws IOException {
