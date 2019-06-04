@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void removeFromGroup(ContactData editedContact, GroupData group) {
-        selectGroupForSort(group);
+        app.group().selectGroupForSort(group);
         selectContactById(editedContact.getId());
         deleteFromGroup();
     }
