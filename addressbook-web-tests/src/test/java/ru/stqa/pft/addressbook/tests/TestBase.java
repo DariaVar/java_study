@@ -19,6 +19,9 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class TestBase {
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
@@ -58,8 +61,8 @@ public class TestBase {
     public void verifyContactListInUI() {
         if(Boolean.getBoolean("verifyUI")) {
             Contacts dbContacts = app.db().contacts();
-            Contacts uiContacts = app.contact().all();
-            MatcherAssert.assertThat(uiContacts, CoreMatchers.equalTo(dbContacts));
+            Contacts uiContacts = app.contact().set();
+            assertThat(uiContacts, equalTo(dbContacts));
         }
     }
 }

@@ -44,12 +44,11 @@ public class AddcontactToGroupTests extends TestBase {
         GroupData groupForAdd = groups.stream().iterator().next();
         app.goTo().gotoHome();
         app.contact().addToGroup(groupForAdd, editedContact);
-        app.goTo().gotoHome();
+
         Contacts after = app.db().contacts();
         ContactData contactAfter = after.stream().filter(data -> Objects.equals(data.getId(), idEditedContact)).findFirst().get();
         Groups contactGroupsAfter = contactAfter.getGroups();
         assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withAdded(groupForAdd)));
-
         verifyContactListInUI();
     }
 }
