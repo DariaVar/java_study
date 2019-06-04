@@ -3,6 +3,7 @@ package ru.stqa.pft.mantis.appmanager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.io.File;
@@ -16,6 +17,7 @@ public class ApplicationManager {
     private final Properties properties;
     private WebDriver wd;
     private RegistratioHelper registrationHelper;
+    private FtpHelper ftp;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -62,11 +64,16 @@ public class ApplicationManager {
         return wd;
     }
 
+    public FtpHelper ftp(){
+        if (ftp == null) {
+            ftp = new FtpHelper(this);
+        }
+        return ftp;
+    }
+
     public HttpSession newSession() {
         return new HttpSession(this);
 
     }
-    public String getProperty(String key){
-        return properties.getProperty(key);
-    }
+
 }

@@ -9,7 +9,7 @@ public class RegistratioHelper {
 
     public RegistratioHelper(ApplicationManager app) {
         this.app = app;
-        wd = app.getDriver;
+        wd = app.getDriver();
     }
 
     public void start(String username, String email) {
