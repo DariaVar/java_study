@@ -19,7 +19,7 @@ public class MailHelper {
         wiser = new Wiser();
     }
 
-    public List<MailMessage> waitForMail(int count, long timeout) throws MessagingException, IOException {
+    public List<MailMessage> waitForMail (int count, long timeout) throws MessagingException, IOException {
         long start = System.currentTimeMillis();
         while (System.currentTimeMillis() < start + timeout) {
             if (wiser.getMessages().size() >= count) {
@@ -31,9 +31,8 @@ public class MailHelper {
                 e.printStackTrace();
             }
         }
-        throw new Error("No mail :(");
+        throw new Error("No mail");
     }
-
 
     public static MailMessage toModelMail(WiserMessage m) {
         try {
@@ -48,8 +47,12 @@ public class MailHelper {
         }
     }
 
-    public void start(){wiser.start();}
+    public void start() {
+        wiser.start();
+    }
 
-    public void stop() {wiser.stop();}
+    public void stop() {
+        wiser.stop();
+    }
 }
 

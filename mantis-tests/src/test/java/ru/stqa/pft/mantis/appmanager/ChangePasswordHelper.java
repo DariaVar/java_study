@@ -13,7 +13,6 @@ public class ChangePasswordHelper extends HelperBase {
     public ChangePasswordHelper(ApplicationManager app) {
         super(app);
     }
-
     public void loginAsAdminAndManage() {
         wd.get(app.getProperty("web.baseUrl") + "/login_page.php");
         type(By.name("username"), "administrator");

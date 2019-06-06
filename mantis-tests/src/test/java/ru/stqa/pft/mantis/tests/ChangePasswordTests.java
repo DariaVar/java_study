@@ -18,9 +18,9 @@ public class ChangePasswordTests extends TestBase{
     public void startMailServerAndEnsureUser() throws IOException, MessagingException {
         app.mail().start();
         if (app.db().users().size() == 1) {
-            app.registration().start("Daria", "test@localhost.localdomain");
+            app.registration().start("Oleg", "oleg@localhost.localdomain");
             List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
-            String confirmationLink = app.registration().findConfirmationLink(mailMessages, "test@localhost.localdomain");
+            String confirmationLink = app.registration().findConfirmationLink(mailMessages, "oleg@localhost.localdomain");
             app.registration().finish(confirmationLink, "password");
         }
     }
