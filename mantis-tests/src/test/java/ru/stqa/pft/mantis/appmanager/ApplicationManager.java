@@ -68,7 +68,7 @@ public class ApplicationManager {
         return wd;
     }
 
-    public FtpHelper ftp(){
+    public FtpHelper ftp() {
         if (ftp == null) {
             ftp = new FtpHelper(this);
         }
