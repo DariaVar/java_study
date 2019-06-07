@@ -4,6 +4,10 @@
     <bytecodeTargetLevel>
       <module name="addressbook-web-tests.main" target="1.8" />
       <module name="addressbook-web-tests.test" target="1.8" />
+      <module name="githab-sample.main" target="1.8" />
+      <module name="githab-sample.test" target="1.8" />
+      <module name="github-sample.main" target="1.8" />
+      <module name="github-sample.test" target="1.8" />
       <module name="mantis-tests.main" target="1.8" />
       <module name="mantis-tests.test" target="1.8" />
       <module name="sandbox_main" target="1.8" />
